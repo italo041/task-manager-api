@@ -84,7 +84,7 @@ userSchema.methods.generateAuthToken = function _callee() {
           user = this;
           token = jwt.sign({
             _id: user._id.toString()
-          }, 'thisismynewcourse');
+          }, process.env.JWT_SECRET);
           user.tokens = user.tokens.concat({
             token: token
           });
